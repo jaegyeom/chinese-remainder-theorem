@@ -1,0 +1,30 @@
+Theorem: let n[1], n[2], ... ,n[k] ∈  Z, be pairwise coprime the system of simultaneous congruences:
+x ≡  a[1](mod n[1])
+x ≡  a[2](mod n[2])
+x ≡  a[3](mod n[3])
+.
+.
+.
+.
+x ≡  a[k](mod n[k])
+has a UNIQUE solution modulo n=n[1]n[2]n[3]...n[k](i.e. in Zn)
+
+function:
+int CRT(int a[], int n[]);
+ algorithm:
+  1. calc n = n[1]n[2]...n[k]
+  2. init x = 0;
+  3. n'[i]=n/n[i]
+  4. m[i] = inverse of n'[i] mod n[i]
+  5. x += a[i]*n'[i]*m[i]
+
+sub function:
+int inverse(int m, int n); 
+ algorithm(extended Euclidean algorithm)(xm+yn=d)
+ 1.n = n mod m, d = 0
+ 2.if n = 0, d = m, x = 1, y = 0, return (d, x, y)
+ 3.x1 = 1, x2 = 0 y1 = 0 y2 = 1
+ 4.while n > 0
+  4.1 q3 = m / n, r = m - q3*n, x3 = x1 - q3*x2 and y3 = y1 - q3*y2
+  4.2 m = n, n = r, x1 = x2, y1 = y2, x2 = x3, y2 = y3
+ 5.set d = m, x = x1, y = y1 return (d, x, y)
