@@ -28,3 +28,7 @@ int inverse(int m, int n);
   4.1 q3 = m / n, r = m - q3*n, x3 = x1 - q3*x2 and y3 = y1 - q3*y2
   4.2 m = n, n = r, x1 = x2, y1 = y2, x2 = x3, y2 = y3
  5.set d = m, x = x1, y = y1 return (d, x, y)
+
+TODO list:
+data interface
+parser
